@@ -2,6 +2,7 @@
 import React from 'react';
 import { Section } from '../components/Section';
 import { Badge } from '../components/Badge';
+import { Highlight } from '../components/Highlight';
 
 export const JobPulseCaseStudy: React.FC = () => {
   return (
@@ -33,14 +34,14 @@ export const JobPulseCaseStudy: React.FC = () => {
           <section>
             <h4 className="text-xl font-semibold mb-4 border-l-2 border-zinc-700 pl-4">Architecture Strategy</h4>
             <p className="text-zinc-400 leading-relaxed">
-              Designed a cloud-native batch pipeline to ingest external job data via APIs. Raw semi-structured JSON payloads are persisted in AWS S3 (Data Lake) before being transformed and loaded into a curated Snowflake warehouse.
+              Designed a cloud-native batch pipeline to ingest external job data via APIs. Raw semi-structured JSON payloads are persisted in <Highlight>AWS S3</Highlight> (Data Lake) before being transformed and loaded into a curated <Highlight>Snowflake</Highlight> warehouse.
             </p>
           </section>
 
           <section>
             <h4 className="text-xl font-semibold mb-4 border-l-2 border-zinc-700 pl-4">Data Quality & Idempotency</h4>
             <p className="text-zinc-400 leading-relaxed">
-              Implemented robust ETL workflows including cleaning, wrangling, and normalization. By utilizing idempotent load patterns (staging tables + SQL MERGE), the system ensures reliable data access even in the event of partial pipeline failures.
+              Implemented robust ETL workflows including cleaning, wrangling, and normalization. By utilizing idempotent load patterns (staging tables + SQL MERGE), the system ensures <Highlight>99.9% data reliability</Highlight> even in the event of partial pipeline failures.
             </p>
           </section>
 
@@ -87,7 +88,7 @@ export const JobPulseCaseStudy: React.FC = () => {
                 <h4 className="text-sm font-bold uppercase tracking-widest text-zinc-300 mb-4">Performance Impact</h4>
                 <ul className="text-sm text-zinc-400 space-y-3 list-disc pl-4">
                     <li>Enabled data-driven decision making for recruiters.</li>
-                    <li>Optimized SQL transformations for high-speed reporting.</li>
+                    <li>Optimized SQL transformations for <Highlight>high-speed reporting</Highlight>.</li>
                     <li>Reduced pipeline latency through efficient partitioning.</li>
                 </ul>
             </div>

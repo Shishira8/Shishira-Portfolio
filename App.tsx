@@ -12,9 +12,12 @@ import { Navbar } from './components/Navbar';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-zinc-100 selection:text-zinc-950">
+    <div className="relative min-h-screen bg-zinc-950 text-zinc-100 selection:bg-zinc-100 selection:text-zinc-950 overflow-x-hidden">
+      {/* UI layer */}
       <Navbar />
-      <main>
+      
+      {/* Content layer */}
+      <main className="relative z-10">
         <Hero />
         <WhatIBuild />
         <Achievements />
@@ -23,6 +26,7 @@ const App: React.FC = () => {
         <Experience />
         <Writing />
       </main>
+      
       <Footer />
     </div>
   );

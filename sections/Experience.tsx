@@ -2,6 +2,7 @@
 import React from 'react';
 import { Section } from '../components/Section';
 import { EXPERIENCE } from '../constants';
+import { Highlight } from '../components/Highlight';
 
 export const Experience: React.FC = () => {
   return (
@@ -16,12 +17,22 @@ export const Experience: React.FC = () => {
             </div>
             <p className="text-zinc-400 font-medium mb-4 text-sm">{item.company}</p>
             <ul className="space-y-3">
-              {item.bullets.map((bullet, bIdx) => (
-                <li key={bIdx} className="text-zinc-500 text-sm leading-relaxed flex gap-3">
-                  <span className="text-zinc-700 font-bold">•</span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
+              {item.bullets.map((bullet, bIdx) => {
+                // Regex to wrap metrics in highlights
+                const parts = bullet.split(/(\d+(?:M\+|%|\$|K|\+))/g);
+                return (
+                  <li key={bIdx} className="text-zinc-500 text-sm leading-relaxed flex gap-3">
+                    <span className="text-zinc-700 font-bold">•</span>
+                    <span>
+                      {parts.map((part, pIdx) => 
+                        /(\d+(?:M\+|%|\$|K|\+))/.test(part) ? (
+                          <Highlight key={pIdx} className="text-amber-500/80">{part}</Highlight>
+                        ) : part
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

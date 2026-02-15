@@ -5,7 +5,8 @@ interface ButtonProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'ghost';
   href?: string;
-  onClick?: () => void;
+  // Support React.MouseEvent to allow event manipulation like preventDefault()
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
   className?: string;
 }
 
@@ -19,9 +20,10 @@ export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', h
 
   const combinedStyles = `${baseStyles} ${variants[variant]} ${className}`;
 
+  // Fix: Pass onClick to anchor tag to support custom click behaviors (e.g., smooth scrolling)
   if (href) {
     return (
-      <a href={href} className={combinedStyles}>
+      <a href={href} onClick={onClick} className={combinedStyles}>
         {children}
       </a>
     );

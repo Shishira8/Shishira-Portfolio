@@ -47,11 +47,11 @@ export const PROJECTS: Project[] = [
 
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    company: "City of Long Beach",
-    role: "Data Engineer",
+    company: "City of Long Beach (LGB Airport)",
+    role: "Database Engineer",
     period: "Sept 2025 — Present",
     bullets: [
-      "Architected centralized Snowflake analytics warehouse consolidating 5M+ records using advanced T-SQL and dimensional data modeling.",
+      "Architected centralized Snowflake analytics warehouse consolidating 5M+ records using advanced T-SQL and dimensional data modeling for Airport operations.",
       "Developed scalable ETL/SSIS pipelines using Azure Data Factory, reducing manual reporting by 70%.",
       "Created complex T-SQL stored procedures and optimized query performance through execution plan analysis.",
       "Built Power BI dashboards achieving $50,000 in annual cost savings through resource optimization."
@@ -59,7 +59,7 @@ export const EXPERIENCE: ExperienceItem[] = [
   },
   {
     company: "Helton Law Group, APC",
-    role: "Data Engineer",
+    role: "Database Engineer",
     period: "May 2025 — Aug 2025",
     bullets: [
       "Processed EHR records using T-SQL & Python into normalized structures with data quality validation frameworks.",
@@ -70,7 +70,7 @@ export const EXPERIENCE: ExperienceItem[] = [
   },
   {
     company: "California State University Long Beach",
-    role: "Data Engineer",
+    role: "Database Engineer",
     period: "Nov 2024 — May 2025",
     bullets: [
       "Built SQL and Python reporting pipelines delivering analytics for 15,000+ records annually.",
@@ -97,7 +97,7 @@ export const ACHIEVEMENTS = [
     title: "Galactic Global Nominee",
     org: "NASA Space Apps Hackathon",
     description: "2-time nominee for innovative problem-solving on a global stage.",
-    highlight: "Global Recognition"
+    highlight: "NASA Space Apps"
   },
   {
     title: "Taco Bell Live Más Scholar",

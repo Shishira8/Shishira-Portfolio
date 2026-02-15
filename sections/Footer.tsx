@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             <span className="text-xs font-bold text-zinc-600 uppercase tracking-widest">Connect</span>
             <div className="flex gap-6 items-center">
               <a href="mailto:shishirashashidhar@gmail.com" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors">Email</a>
-              <a href="https://github.com" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors">GitHub</a>
+              <a href="https://github.com/Shishira8" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors">GitHub</a>
               <a href="https://linkedin.com/in/shishira-shashidhar-b634311b1/" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors">LinkedIn</a>
             </div>
           </div>
