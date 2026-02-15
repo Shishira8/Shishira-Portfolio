@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
   const [showResume, setShowResume] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -15,7 +14,6 @@ export const Navbar: React.FC = () => {
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    setIsMobileMenuOpen(false);
     
     if (id === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -76,50 +74,27 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile UI Controls */}
-          <div className="flex lg:hidden gap-4 items-center">
-            <button 
+          {/* Mobile: show visible nav buttons (no toggle) */}
+          <div className="flex lg:hidden gap-3 items-center flex-wrap">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => handleScroll(e, link.id)}
+                className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-100 px-2 py-1"
+              >
+                {link.label}
+              </a>
+            ))}
+            <button
               onClick={() => setShowResume(true)}
               className="bg-zinc-100 text-zinc-950 px-3 py-1 rounded text-[10px] font-bold"
             >
               Resume
             </button>
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-zinc-400 hover:text-white p-2"
-              aria-label="Toggle Menu"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                {isMobileMenuOpen ? <path d="M18 6L6 18M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
-              </svg>
-            </button>
           </div>
         </div>
-
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="absolute top-full left-0 right-0 bg-zinc-950 border-b border-zinc-900 lg:hidden shadow-2xl"
-            >
-              <div className="flex flex-col p-6 gap-6">
-                {navLinks.map((link) => (
-                  <a 
-                    key={link.id} 
-                    href={`#${link.id}`} 
-                    onClick={(e) => handleScroll(e, link.id)} 
-                    className="text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-white"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        
       </nav>
 
       {/* Resume Modal */}
